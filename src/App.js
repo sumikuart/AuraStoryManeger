@@ -37,7 +37,7 @@ function App() {
           </div>
 
           <div className="sideNav" id="sidebarhidemainid"> 
-           <Route path='/home' component={Sidebar} />
+          <Route path='/home' component={Sidebar} />
           </div>
 
           <div className="mainContent">
@@ -50,11 +50,11 @@ function App() {
             </main>
             <footer></footer>
           </div>
-
+ 
           <div className="footerContent">
           <Route path='/home' component={Footer} />
           </div>
-           
+          
         </div>
 
       </Router>

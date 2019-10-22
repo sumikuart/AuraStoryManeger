@@ -18,7 +18,10 @@ class Navbar extends Component {
         <nav>
             <ul>
                 <li><NavLink to="/home"> Home </NavLink></li>
-                <li><NavLink to="/home/characters"> Characters </NavLink></li>
+                <li><NavLink to="/home/world"> The World </NavLink></li>
+                <li><NavLink to="/home/characters"> The Characters </NavLink></li>
+                <li><NavLink to="/home/story"> The Story </NavLink></li>
+                <li><NavLink to="/home/tools"> Writing Tools </NavLink></li>
                 <li><NavLink to="/home/files"> File Maneger </NavLink></li>
             </ul>
         </nav>
