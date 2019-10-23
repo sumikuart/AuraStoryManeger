@@ -4,12 +4,6 @@ import axios from 'axios';
 
 import './selectorcreate.style.css'
 
-// const CharecterListWorker = props => (
-//     <option value={props.currentcharecter._id}>{props.currentcharecter.ch_name}</option>
-// )
-
-
-
 const CharecterListWorker = (props) => (
     <option value={props.currentcharecter._id}>{props.currentcharecter.ch_name}</option>
 )
@@ -51,18 +45,18 @@ const SelectOrMakeCharecter = (props) => {
                     <div>
                     <div className="formDiv">
                         <div className="selectCharecterDiv">
-                            <form onSubmit={props.selectCharecterFunction}>
+                            <form>
                                 <label>Select Charecter:</label>
-                                <select onChange={props.changeCharecterSelectValue}>
+
+                                    <select onChange={props.onChangeSelect}>
                                     <option value="none">Select Charecter:</option>
                                     {makeCharecterSelectionList()}
                                 </select>
                                 <p className="inline"> or</p>
                                 <input type="text" placeholder="search" className="searchbar" />
-    
                         
+                                <NavLink to={'/home/characters/'+props.url_position}> send </NavLink>
                             </form>
-    
                     
                         </div>
                         </div>
@@ -73,12 +67,17 @@ const SelectOrMakeCharecter = (props) => {
             }
             if(props.selectedCharecterFunction=== "new"){
                 return(
-                    <div>
-                        <p>Comming Soon</p>
+                    <div className="makeNewCharecter"> 
+                         
+                        <form onSubmit={props.creatNewCharecter}>
+                            <label>Name Charecter:</label>
+                            <input type="text" placeholder="new Chareter Name" onChange={props.onChangeName} />
+                            <input type="submit" value="Create"/>
+                        </form>
                     </div>
                 )
             }
-        }
+        }   
 
         return(
             <div className="SelectOrMakeCharecterStyle">

@@ -119,3 +119,37 @@
     margin-left: 15px;
     
 }
+
+
+.SelectOrMakeCharecterStyle .makeNewCharecter {}
+
+.SelectOrMakeCharecterStyle .makeNewCharecter form label{
+    display:inline;
+    margin-right:10px;
+}
+
+.SelectOrMakeCharecterStyle .makeNewCharecter form button{
+margin-left:10px;
+}
+
+
+.SelectOrMakeCharecterStyle .selectCharecterDiv form a {
+    border: 2px solid white;
+    display: block;
+    color:white;
+    text-align: center;
+    text-decoration:none;
+    margin:5px;
+}
+
+
+.SelectOrMakeCharecterStyle .makeNewCharecter  a {
+    border: 2px solid white;
+    display: block;
+    color:white;
+    text-align: center;
+    text-decoration:none;
+    margin:5px;
+    width:30%;
+    margin: 0 auto;
+}

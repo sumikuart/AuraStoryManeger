@@ -15,7 +15,7 @@ class MainCharecterComponent extends Component {
 
         charecter:{
             ch_id: 'none selected',
-            ch_name: '',
+            ch_name: ''
         },
 
         charecterList:'',
@@ -23,8 +23,8 @@ class MainCharecterComponent extends Component {
 
         charecterarray:[],
         chselecterid: '',
-        selectedCharecterFunction: ''
- 
+        selectedCharecterFunction: '',
+        url_position: ''
     }
 
 // -----------------------------------------------------------------------------------------SelectOrCreat Functions:
@@ -70,7 +70,14 @@ class MainCharecterComponent extends Component {
 
 
         this.setState({
-            selectedCharecterFunction: 'info'
+            selectedCharecterFunction: 'info',
+
+            charecter:{
+                ch_id: 'none selected',
+                ch_name: ''
+            }
+
+
         })
     }
 
@@ -79,50 +86,67 @@ class MainCharecterComponent extends Component {
         console.log('ny karakter')
 
         this.setState({
-            selectedCharecterFunction: 'new'
+            selectedCharecterFunction: 'new',
+
+            
+        charecter:{
+            ch_id: 'none selected',
+            ch_name: 'New Charecter'
+        }
+
         })
     }
+
+    // onChangeSelect functions
+
+    onChangeSelect = (e) => {
+     this.setState({
+        url_position: e.target.value
+     })   
+    }
+
+
     
-// -----------------------------------------------------------------------------------------Edit Functions:
-
-saveCharecter = (e) => {
+creatNewCharecter = (e) => {
     e.preventDefault();
-    console.log('save', this.state.charecter._id)
-
-    const ch = {
+    
+    const addch = {
         ch_name: this.state.charecter.ch_name
     }
 
-    axios.post('http://localhost:4464/update/' + this.state.charecter._id, ch)
+    axios.post('http://localhost:4464/add/savech', addch)
     .then(res => console.log(res.data))
 
-
-}
-
-// onChange functions for Edit: 
-
-onChangeName = (e) => {
-    console.log('save id1', this.state.charecter._id)
-    console.log('save id2', this.state.charecter._id)
-    
     this.setState({
-        charecter:{
-            ch_name: e.target.value,
-            _id: this.state.charecter._id
-        }
+            selectedCharecterFunction: '',
+
+            charecter:{
+                ch_id: 'none selected',
+                ch_name: ''
+            }
     })
 
-    console.log('save id3', this.state.charecter._id)
 }
+
+onChangeName = (e) => {
+
+    this.setState({
+
+        charecter:{
+            ch_name: e.target.value
+        }
+})
+}
+
 
     render(){
         return(
             <div className="mainCharecterComponentStyle">
 
                 <div>
-                    <SelectOrMakeCharecter selectedCharecterFunction={this.state.selectedCharecterFunction} getnewCharecterfunction={this.getnewCharecterfunction} ch_state={this.state.charecterarray} selectCharecterFunction={this.selectCharecterFunction} changeCharecterSelectValue={this.changeCharecterSelectValue} getlistfunction={this.getlistfunction}/>
+                    <SelectOrMakeCharecter onChangeName={this.onChangeName} creatNewCharecter={this.creatNewCharecter} url_position={this.state.url_position}  onChangeSelect={this.onChangeSelect} selectedCharecterFunction={this.state.selectedCharecterFunction} getnewCharecterfunction={this.getnewCharecterfunction} ch_state={this.state.charecterarray} changeCharecterSelectValue={this.changeCharecterSelectValue} getlistfunction={this.getlistfunction}/>
 
-                    <EditChareacter onChangeName={this.onChangeName} saveCharecter={this.saveCharecter} chosenCharecter={this.state.charecter} />
+                    <Route path='/home/characters/:id' component={EditChareacter}/>
 
                 </div>
 
