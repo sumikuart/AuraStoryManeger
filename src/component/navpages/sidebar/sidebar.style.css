@@ -7,11 +7,167 @@
 }
 
 
-.sidebarStyle.hide{
-    width:0%;
-    display:none;
+.sidebarStyle  .sidebartitle{
+    border-bottom: 3px solid rgb(92, 92, 92);
+    display: flex;
+    padding-left:10px;
+}
 
-    min-height:80vh;
+.sidebarStyle .sidebartitle .updateSidebar {
+ color:gray;
+ cursor: pointer;
+}
 
-    border-right: 3px solid rgb(192, 192, 192); 
+
+
+.sidebarStyle .vipCharecterDiv{
+    border-bottom: 3px solid rgb(192, 192, 192); 
+}
+
+
+.sidebarStyle ul {
+    margin-bottom: 15px;
+}
+
+.sidebarStyle ul li {}
+
+.sidebarStyle ul li a {
+    color:white;
+    display: block;
+    cursor: pointer;
+    text-align: left;
+    padding:10px;
+    margin-top:20px;
+    text-decoration: none;
+    border-left: 5px solid rgb(192, 192, 192); 
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom: none;
+    transition: 0.3s;
+}
+
+.sidebarStyle ul li a:hover{
+
+-webkit-box-shadow: 0px 0px 25px 0px rgb(192, 192, 192);
+-moz-box-shadow: 0px 0px 25px 0px rgba(192, 192, 1927);
+box-shadow: 0px 15px 15px -10px rgba(192, 192, 192);
+}
+
+
+.sidebarStyle .vipCharecterDiv ul li a:hover{
+margin-left: 20px;
+border-bottom: 3px solid rgb(192, 192, 192); 
+
+}
+
+/* ------------------------------------------------------Chapters */
+
+.sidebarStyle .sidebarChapterTabel{
+    padding-left: 10px;
+}
+
+.sidebarStyle .sidebarChapterTabel table{
+    width:100%;
+    text-align: center;
+}
+
+
+.sidebarStyle .sidebarChapterTabel table{
+    width:100%;
+    text-align: left;
+}
+
+
+.sidebarStyle .sidebarChapterTabel table .tableContentSidebar tr{
+    padding-bottom: 5px;
+    width:100%;
+    display: block;
+}
+
+.sidebarStyle .sidebarChapterTabel table .tableContentSidebar a{
+ display: block;
+ width:100%;
+ color:white;
+ text-decoration: none;
+}
+
+.sidebarStyle .sidebarChapterTabel table .tableContentSidebar tr:hover{
+    cursor: pointer;
+background-color: rgb(92, 92, 92);
+}
+
+
+
+.sidebarStyle .sidebarChapterTabel table .tableContentSidebar .ongoing{
+
+width:10px;
+height:10px;
+border-radius: 100%;
+
+filter: blur(1px);
+
+background-color: rgb(255, 166, 0);
+
+
+}
+
+
+.sidebarStyle .sidebarChapterTabel table .tableContentSidebar .done{
+
+    width:10px;
+    height:10px;
+    border-radius: 100%;
+    
+    filter: blur(1px);
+    
+    background-color: rgb(33, 197, 33);
+    
+    
+    }
+
+    .sidebarStyle .sidebarChapterTabel table .tableContentSidebar .none{
+
+        width:10px;
+        height:10px;
+        border-radius: 100%;
+        
+        filter: blur(1px);
+        
+        background-color: rgb(83, 83, 83);
+        
+        
+        }
+
+        
+        /* -----------------hide function */
+
+        .NextOnTodoSidebarDiv {
+            border-bottom: 3px solid rgb(192, 192, 192);
+        }
+        
+        .NextOnTodoSidebarDiv .nextSidebarTodoContent {
+            padding:10px;
+            text-align: center;
+        }
+        
+        .NextOnTodoSidebarDiv .nextSidebarTodoContent .nextTodoDoneSidebar {
+            border: 1px solid white;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top:10px;
+        
+        }
+
+        .NextOnTodoSidebarDiv .nextSidebarTodoContent .nextTodoDoneSidebar:hover{
+            background-color: rgb(192, 192, 192);
+            color: black;
+        }
+
+        
+.sidebartitle {
+    cursor: pointer;
+}
+
+.sidebarStyle .hide {
+    display: none;
 }

@@ -1,6 +1,22 @@
 /* mainCharecterComponentStyle.css */
 
-h2 {
+.mainEditComponentStyle {}
+
+.mainEditComponentStyle h2 {
     text-align: left;
     margin:20px;
+}
+
+.mainEditComponentStyle label{
+    display: block;
+}
+
+.mainEditComponentStyle input{
+    margin-bottom: 10px;
+}
+
+.mainEditComponentStyle .vipBoxCheck {
+
+    width:25px;
+    height: 25px;
 }

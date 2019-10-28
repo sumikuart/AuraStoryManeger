@@ -24,7 +24,9 @@ class MainCharecterComponent extends Component {
         charecterarray:[],
         chselecterid: '',
         selectedCharecterFunction: '',
-        url_position: ''
+        url_position: '',
+        hideselector: true,
+        hideTextShow: 'hide'
     }
 
 // -----------------------------------------------------------------------------------------SelectOrCreat Functions:
@@ -124,6 +126,7 @@ creatNewCharecter = (e) => {
                 ch_id: 'none selected',
                 ch_name: ''
             }
+            
     })
 
 }
@@ -138,13 +141,32 @@ onChangeName = (e) => {
 })
 }
 
+hideShowSelectCharecter = (e) => {
+
+    if(this.state.hideselector){
+        this.setState({
+            hideselector:false,
+            hideTextShow: 'show'
+        })
+    } else {
+        this.setState({
+            hideselector:true,
+            hideTextShow:'hide'
+        })
+    }
+
+}
 
     render(){
         return(
             <div className="mainCharecterComponentStyle">
 
                 <div>
-                    <SelectOrMakeCharecter onChangeName={this.onChangeName} creatNewCharecter={this.creatNewCharecter} url_position={this.state.url_position}  onChangeSelect={this.onChangeSelect} selectedCharecterFunction={this.state.selectedCharecterFunction} getnewCharecterfunction={this.getnewCharecterfunction} ch_state={this.state.charecterarray} changeCharecterSelectValue={this.changeCharecterSelectValue} getlistfunction={this.getlistfunction}/>
+                    <SelectOrMakeCharecter onHide={this.state.hideselector} onChangeName={this.onChangeName} creatNewCharecter={this.creatNewCharecter} url_position={this.state.url_position}  onChangeSelect={this.onChangeSelect} selectedCharecterFunction={this.state.selectedCharecterFunction} getnewCharecterfunction={this.getnewCharecterfunction} ch_state={this.state.charecterarray} changeCharecterSelectValue={this.changeCharecterSelectValue} getlistfunction={this.getlistfunction}/>
+                  
+                    <div className="hideSelectCharecterFunctionDiv" onClick={this.hideShowSelectCharecter}>
+                        <p>{this.state.hideTextShow}</p>
+                    </div>
 
                     <Route path='/home/characters/:id' component={EditChareacter}/>
 

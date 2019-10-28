@@ -18,15 +18,12 @@ class EditChareacter extends Component {
         axios.get('http://localhost:4464/selectedCharecter/' + this.props.match.params.id)
         .then(response => {
                 this.setState({ 
-                    charecter: response.data
+                    charecter: response.data,
                 })
         }).catch(function(error) {
             console.log('an Error has accurd in get from componentDidMount in todoList component')
 
-    
-      
         })
-    
 
 
     }
@@ -34,10 +31,11 @@ class EditChareacter extends Component {
 
     saveCharecter = (e) => {
         e.preventDefault();
-        console.log('save', this.state.charecter._id)
+        console.log('save: ', this.state.charecter._id)
     
         const ch = {
-            ch_name: this.state.charecter.ch_name
+            ch_name: this.state.charecter.ch_name,
+            ch_vip: this.state.charecter.ch_vip
         }
     
         axios.post('http://localhost:4464/update/' + this.state.charecter._id, ch)
@@ -49,18 +47,14 @@ class EditChareacter extends Component {
     deleteChareter = (e) => {
         e.preventDefault();
 
-        console.log('destory')
-
-
-             
-
         axios.delete('http://localhost:4464/delete/'+this.props.match.params.id)
             .then( res => console.log(res.data))
 
             this.setState({
                 charecter:{
                     ch_id: 'none selected',
-                    ch_name: 'This Chareter is no more'
+                    ch_name: 'This Chareter is no more',
+                    ch_vip: false
                 }
             })
 
@@ -74,9 +68,38 @@ onChangeName = (e) => {
     this.setState({
         charecter:{
             ch_name: e.target.value,
+            ch_vip:this.state.charecter.ch_vip,
             _id: this.state.charecter._id
         }
     })
+}
+
+onChangeVip = (e) => {
+
+    console.log(e.target.value)
+    
+    if(e.target.value === "normal"){
+        this.setState({
+            charecter:{
+                ch_name: this.state.charecter.ch_name,
+                ch_vip: false,
+                _id: this.state.charecter._id
+            }
+        })
+    } else {
+        this.setState({
+            charecter:{
+                ch_name: this.state.charecter.ch_name,
+                ch_vip: true,
+                _id: this.state.charecter._id
+            }
+        })
+    }
+}
+
+
+checkCharecterStatus = (e) => {
+    console.log(this.state.charecter)
 }
 
 
@@ -91,9 +114,19 @@ render(){
                 <h2> {this.state.charecter.ch_name}</h2>
 
             <form>
+
                 <label>Name:</label>
                 <input type="text" placeholder='name' onChange={this.onChangeName} value={this.state.charecter.ch_name}/>
-         
+
+            <form onChange={this.onChangeVip}> 
+
+                <label>VIP Status:</label>
+                <input type="radio" name="vip_status" value="normal" /> Normal 
+                <input type="radio" name="vip_status" value="vip" /> VIP 
+
+            </form>
+
+                                
             </form>
 
 
@@ -103,10 +136,10 @@ render(){
             
                     <p>Tools:</p>
                         <div><p>Status:</p></div>
-                        <div className="button" onClick={this.updateChosenCh}><p>Get Charecter</p></div>
+                        <div className="button" onClick={this.updateChosenCh}><p>Get Charecter/Reset</p></div>
                         <div className="button" onClick={this.saveCharecter}><p>Save</p></div>
-                        <div className="button"><p>Reset</p></div>
                         <div className="button" onClick={this.deleteChareter}><p>Delete</p></div>
+                        <div className="button" onClick={this.checkCharecterStatus}><p>Check Charecter</p></div>
                  
             </div>
             

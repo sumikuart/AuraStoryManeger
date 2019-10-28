@@ -5,6 +5,12 @@
     border-bottom: 3px solid rgb(192, 192, 192); 
 }
 
+.navbarstyle .basicNav{
+    position: relative;
+    top:0;
+    left:0;
+}
+
 .navbarstyle nav ul {
     display:flex;
     justify-content: space-between; 
@@ -19,7 +25,8 @@
     margin:5px;
 }
 
-.navbarstyle nav ul li a {
+.navbarstyle nav ul li a,
+.navbarstyle nav ul li p {
     color:white;
     display: block;
     cursor: pointer;
@@ -34,7 +41,8 @@
     transition: 0.3s;
 }
 
-.navbarstyle nav ul li a:hover {
+.navbarstyle nav ul li a:hover,
+.navbarstyle nav ul li p:hover  {
 border-bottom: 3px solid rgb(192, 192, 192); 
 
 -webkit-box-shadow: 0px 0px 25px 0px rgb(192, 192, 192);
@@ -43,3 +51,42 @@ box-shadow: 0px 15px 15px -10px rgba(192, 192, 192);
 
 }
 
+
+.navbarstyle .basicNav p.hidden::after {
+    content: "^"
+    }
+.navbarstyle .basicNav p.show::after {
+    content: "v"
+    }
+    
+
+    .navbarstyle .storyDropdown .hidden {
+
+
+        position: absolute;
+        top:90px;
+        right:auto;
+        display: none;
+        
+    }
+    
+    .navbarstyle .storyDropdown .show {
+        border: 3px solid  rgb(192, 192, 192); 
+        background-color: rgb(50, 50, 50);
+        width:10%;
+        height: auto;
+        z-index:100;    
+
+
+        position: absolute;
+        top:90px;
+        right:auto;
+        display: block;
+    }
+    
+    .navbarstyle .storyDropdown .show  ul{
+        display: block;
+    }
+    .navbarstyle .storyDropdown .show  ul li{
+        width:100%;
+    }

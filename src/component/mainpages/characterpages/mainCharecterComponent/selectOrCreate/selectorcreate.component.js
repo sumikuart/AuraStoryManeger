@@ -3,7 +3,6 @@ import {NavLink} from "react-router-dom";
 import axios from 'axios';
 
 import './selectorcreate.style.css'
-
 const CharecterListWorker = (props) => (
     <option value={props.currentcharecter._id}>{props.currentcharecter.ch_name}</option>
 )
@@ -38,6 +37,9 @@ const SelectOrMakeCharecter = (props) => {
             
         }
 
+        
+
+
         function ch_Info(){
             console.log(props.selectedCharecterFunction)
             if(props.selectedCharecterFunction=== "info") {
@@ -48,20 +50,19 @@ const SelectOrMakeCharecter = (props) => {
                             <form>
                                 <label>Select Charecter:</label>
 
-                                    <select onChange={props.onChangeSelect}>
+                                    <select onChange={props.onChangeSelect} id="selectCh">
                                     <option value="none">Select Charecter:</option>
                                     {makeCharecterSelectionList()}
                                 </select>
                                 <p className="inline"> or</p>
                                 <input type="text" placeholder="search" className="searchbar" />
                         
-                                <NavLink to={'/home/characters/'+props.url_position}> send </NavLink>
+                                <NavLink to={'/home/characters/'+props.url_position} id="sendSelectCh"> send </NavLink>
                             </form>
                     
                         </div>
                         </div>
                     </div>
-                   
                 )
 
             }
@@ -79,20 +80,30 @@ const SelectOrMakeCharecter = (props) => {
             }
         }   
 
-        return(
-            <div className="SelectOrMakeCharecterStyle">
-
-                <div className="headline">
-                    <p>Charecters:</p>
+        if(props.onHide){
+            return(
+                <div className="SelectOrMakeCharecterStyle">
+    
+                    <div className="headline">
+                        <p>Charecters:</p>
+                    </div>
+    
+                    {openSelect()}
+    
+                    <div className="flexerSelect">
+                    {ch_Info()}
                 </div>
+                </div>
+            ) 
+        }else {
 
-                {openSelect()}
+            return(
+                <div>
+                    
+                </div>
+            )
+        }
 
-                <div className="flexerSelect">
-                {ch_Info()}
-            </div>
-            </div>
-        )
     }
 
 // }

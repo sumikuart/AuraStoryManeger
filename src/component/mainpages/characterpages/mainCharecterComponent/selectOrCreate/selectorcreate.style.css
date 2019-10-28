@@ -11,6 +11,8 @@
     font-size: 32px;
 }
 
+
+
 .SelectOrMakeCharecterStyle .getCompleteChList{
 
     border-bottom: 3px solid rgb(192, 192, 192);
@@ -30,11 +32,6 @@
     box-shadow:  0px 15px 15px -10px rgb(160, 217, 255);
 }
 
-
-
-.SelectOrMakeCharecterStyle form {
-    /* display: inline; */
-}
 
 .SelectOrMakeCharecterStyle form label {
     font-size: 24px;
@@ -153,3 +150,4 @@ margin-left:10px;
     width:30%;
     margin: 0 auto;
 }
+

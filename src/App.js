@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './app.style.css'
 
 
+
 // ----------------------------------------- Components:
 //nav: 
 import Navbar from './component/navpages/navigation/navigation.component'
@@ -17,6 +18,7 @@ import LoginComponent from './component/mainpages/login/login.component'
 // Landing Page: 
 import LandingComponent from './component/mainpages/landingpage/landingPage.component'
 import MainCharecterComponent from './component/mainpages/characterpages/mainCharecterComponent/mainCharecterComponent.component'
+import MainChapterComponent from './component/mainpages/storypages/chaptercomponents/mainchapter.component'
 
 //File Center: 
 import FileControler from './component/fileCenter/mainFileControler/filecontroler.component'
@@ -30,7 +32,7 @@ function App() {
 
         <Route exact path='/' component={LoginComponent} />
 
-        <div className="contentGrid"> 
+        <div className="contentGrid" > 
 
           <div className="topNav">
             <Route path='/home' component={Navbar} />
@@ -47,6 +49,8 @@ function App() {
             <Route exact path='/home' component={LandingComponent} />
             <Route exact path='/home/files' component={FileControler} />
             <Route path='/home/characters' component={MainCharecterComponent} />
+
+            <Route path='/home/story/chapters' component={MainChapterComponent} />
             </main>
             <footer></footer>
           </div>
