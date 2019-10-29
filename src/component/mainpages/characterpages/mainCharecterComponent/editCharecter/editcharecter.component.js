@@ -4,10 +4,13 @@ import axios from 'axios';
 import './editcharecter.style.css'
 
 
+
 class EditChareacter extends Component {
 
     state ={
-        charecter: []
+        charecter: [],
+
+        deleteOptionMenu: 'deleteoptionhide'
     }
 
 
@@ -22,9 +25,7 @@ class EditChareacter extends Component {
                 })
         }).catch(function(error) {
             console.log('an Error has accurd in get from componentDidMount in todoList component')
-
         })
-
 
     }
 
@@ -44,8 +45,31 @@ class EditChareacter extends Component {
     
     }
 
+
+    deleteChareterMenuHandler = (e) => {
+
+        if(this.state.deleteOptionMenu === "deleteoptionhide"){
+            this.setState({
+                deleteOptionMenu: 'deleteoptionshow'
+            })
+        } else {
+
+            this.setState({
+                deleteOptionMenu: 'deleteoptionhide'
+            })
+        }
+       
+    }
+
+    canceldeleteChareter = (e) =>{
+        this.setState({
+            deleteOptionMenu: 'deleteoptionhide'
+        })
+    }
+
     deleteChareter = (e) => {
         e.preventDefault();
+        
 
         axios.delete('http://localhost:4464/delete/'+this.props.match.params.id)
             .then( res => console.log(res.data))
@@ -111,12 +135,12 @@ render(){
 
             <div className="mainCharecterEditContent">
 
-                <h2> {this.state.charecter.ch_name}</h2>
+    <h2> {this.state.charecter.ch_name}</h2>
 
-            <form>
+    <form>
 
-                <label>Name:</label>
-                <input type="text" placeholder='name' onChange={this.onChangeName} value={this.state.charecter.ch_name}/>
+        <label>Name:</label>
+        <input type="text" placeholder='name' onChange={this.onChangeName} value={this.state.charecter.ch_name}/>
 
             <form onChange={this.onChangeVip}> 
 
@@ -126,21 +150,36 @@ render(){
 
             </form>
 
-                                
-            </form>
+                    
+    </form>
+
+</div>
+               
 
 
-            </div>
+        
 
             <div  className="mainCharecterEditTool">
             
+                <div>
                     <p>Tools:</p>
                         <div><p>Status:</p></div>
                         <div className="button" onClick={this.updateChosenCh}><p>Get Charecter/Reset</p></div>
                         <div className="button" onClick={this.saveCharecter}><p>Save</p></div>
-                        <div className="button" onClick={this.deleteChareter}><p>Delete</p></div>
+                        <div className="button" onClick={this.deleteChareterMenuHandler}><p>Delete</p></div>
                         <div className="button" onClick={this.checkCharecterStatus}><p>Check Charecter</p></div>
-                 
+                </div>
+
+                <div className={this.state.deleteOptionMenu}>
+                    <div className="deleteChareterColorClass">
+                    <p>Delete:</p>
+                        <div><p>are you sure you want to delete:</p></div>
+                        <div><p>{this.state.charecter.ch_name}</p></div>
+                        <div className="button deleteYesColor" onClick={this.deleteChareter}><p>Yes</p></div>
+                        <div className="button deleteNoColor" onClick={this.canceldeleteChareter}><p>No</p></div>
+                    </div>
+                </div>
+         
             </div>
             
 

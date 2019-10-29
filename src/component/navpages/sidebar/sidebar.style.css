@@ -66,44 +66,32 @@ border-bottom: 3px solid rgb(192, 192, 192);
     padding-left: 10px;
 }
 
-.sidebarStyle .sidebarChapterTabel table{
-    width:100%;
-    text-align: center;
+.sidebarStyle .sidebarChapterTabel .chapterLinkA {
+    display: flex;
+}
+
+.sidebarStyle .sidebarChapterTabel .chapterLinkA:hover{
+    cursor: pointer;
+background-color: rgb(92, 92, 92);
 }
 
 
-.sidebarStyle .sidebarChapterTabel table{
-    width:100%;
-    text-align: left;
-}
-
-
-.sidebarStyle .sidebarChapterTabel table .tableContentSidebar tr{
-    padding-bottom: 5px;
-    width:100%;
-    display: block;
-}
-
-.sidebarStyle .sidebarChapterTabel table .tableContentSidebar a{
+.sidebarStyle .sidebarChapterTabel  a{
  display: block;
  width:100%;
  color:white;
  text-decoration: none;
 }
 
-.sidebarStyle .sidebarChapterTabel table .tableContentSidebar tr:hover{
-    cursor: pointer;
-background-color: rgb(92, 92, 92);
-}
 
 
-
-.sidebarStyle .sidebarChapterTabel table .tableContentSidebar .ongoing{
+.sidebarStyle .sidebarChapterTabel  .ongoing{
 
 width:10px;
 height:10px;
 border-radius: 100%;
-
+margin: auto 0;
+margin-right:5px;
 filter: blur(1px);
 
 background-color: rgb(255, 166, 0);
@@ -112,27 +100,27 @@ background-color: rgb(255, 166, 0);
 }
 
 
-.sidebarStyle .sidebarChapterTabel table .tableContentSidebar .done{
+.sidebarStyle .sidebarChapterTabel   .done{
 
     width:10px;
     height:10px;
     border-radius: 100%;
-    
+    margin: auto 0;
     filter: blur(1px);
-    
+    margin-right:5px;
     background-color: rgb(33, 197, 33);
     
     
     }
 
-    .sidebarStyle .sidebarChapterTabel table .tableContentSidebar .none{
+    .sidebarStyle .sidebarChapterTabel  .none{
 
         width:10px;
         height:10px;
         border-radius: 100%;
-        
+        margin: auto 0;
         filter: blur(1px);
-        
+        margin-right:5px;
         background-color: rgb(83, 83, 83);
         
         

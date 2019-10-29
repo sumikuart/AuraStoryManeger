@@ -11,13 +11,16 @@ const MapVipCharecter = (props) =>{
 }
 
 const MapChapterList =(props) => {
+    // BUG!!!!! tr kan ikke være Child af NavLink
     return(
-        <NavLink to={"/home/story/chapters/" + props.currentchapter._id }>
-            <tr>
-                <td><div className={props.currentchapter.chapter_status}></div></td>
-                <td>{" - "+ props.currentchapter.chapter_nr + "."}</td>
-                <td>{props.currentchapter.chapter_name}</td>
-            </tr>
+        <NavLink to={"/home/story/chapters/" + props.currentchapter._id } className="chapterLinkA">
+        
+                <div className={props.currentchapter.chapter_status}></div>
+
+                <div>
+                    <p>{" "+ props.currentchapter.chapter_nr + "." + props.currentchapter.chapter_name}</p>
+                </div>
+            
         </NavLink>
     )
 }
@@ -152,21 +155,21 @@ hideChapterSidebar = (e) => {
             <div className="sidebarStyle">
 
                 <div className="NextOnTodoSidebarDiv">
-                        <div className="sidebartitle" onClick={this.hideTodoSidebar}>
-                            <p> Next Todo:(1 af 1)  </p>
+                        <div className="sidebartitle" >
+                            <p onClick={this.hideTodoSidebar}> Next Todo:(1 af 1)  </p>
                             <p className="updateSidebar" onClick={this.updatesidebarVIP}>(update)</p>
                         </div>
 
                         <div className={this.state.todoClass}>
-                            <p> Make this work</p> 
+                            <p> Make a Todo</p> 
                             <p className="nextTodoDoneSidebar">Done/Next</p>
                         </div>
                 </div>
 
                 <div className="vipCharecterDiv">
 
-                    <div className="sidebartitle" onClick={this.hideVipSidebar}>
-                        <p> VIP Charecters:</p>
+                    <div className="sidebartitle">
+                        <p onClick={this.hideVipSidebar}> VIP Charecters:</p>
                         <p className="updateSidebar" onClick={this.updatesidebarVIP}>(update)</p>
                     </div>
 
@@ -180,23 +183,19 @@ hideChapterSidebar = (e) => {
 
                 <div>
 
-                    <div className="sidebartitle" onClick={this.hideChapterSidebar}>
-                        <p>Chapters:</p>
+                    <div className="sidebartitle">
+                        <p onClick={this.hideChapterSidebar}>Chapters:</p>
                         <p className="updateSidebar" onClick={this.updatesidebarChapters}>(update)</p>
                     </div>
 
                     <div className={this.state.chapterClass}>
 
-                        <table>
-                                    
-                
 
-                            <tbody className="tableContentSidebar" >
+                    <div className='sidebarChapterTabel'>
+                        {this.createChapterSidebarList()}   
+                    </div>
 
-                               {this.createChapterSidebarList()}
 
-                            </tbody>
-                        </table>
 
                     </div>
 

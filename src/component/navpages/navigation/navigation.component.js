@@ -34,7 +34,7 @@ class Navbar extends Component {
             <ul>
                 <li><NavLink to="/home"> Home </NavLink></li>
                 <li><NavLink to="/home/world"> The World </NavLink></li>
-                <li><NavLink to="/home/characters"> The Characters </NavLink></li>
+                <li><NavLink to="/home/characters"> Characters </NavLink></li>
                 <li><div className='centerStoryDropdown'> <p onClick={this.handelOnClickStory} className={this.state.storyClass}> The Story </p>
                 
                     <div className="storyDropdown">
