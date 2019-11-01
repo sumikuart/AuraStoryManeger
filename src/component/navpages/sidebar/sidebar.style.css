@@ -2,8 +2,8 @@
     width:100%;
     min-height:80vh;
 
-    border-right: 3px solid rgb(192, 192, 192); 
-    transition: 1s;
+
+
 }
 
 
@@ -158,4 +158,71 @@ background-color: rgb(255, 166, 0);
 
 .sidebarStyle .hide {
     display: none;
+}
+
+
+
+/* ---------------------------------------------------------------TODO */
+
+
+
+
+.sidebarStyle .todoSidebarTypeFunctionDiv{
+    display: flex;
+  justify-content: space-between;
+}
+
+.sidebarStyle .todoSidebarTypeFunctionDiv .rightbutton,
+.sidebarStyle .todoSidebarTypeFunctionDiv .leftbutton{
+    border: 2px solid white;
+    border-radius: 100%;
+    width:25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+
+.sidebarStyle .todoSidebarTypeFunctionDiv .rightbutton:hover,
+.sidebarStyle .todoSidebarTypeFunctionDiv .leftbutton:hover{
+    -webkit-box-shadow: 0px 0px 18px 0px rgb(0,255,204);
+    -moz-box-shadow: 0px 0px 18px 0px rgb(0,255,204);
+    box-shadow: 0px 0px 18px 0px rgb(0,255,204);
+    background-color: rgb(192, 192, 192);
+    color: black;
+}
+
+
+.sidebarStyle .todoSidebarTypeFunctionDiv .selectTypeTodo{
+    width:70%;
+    border: 2px solid white;
+    border-radius: 20%;
+}
+
+.sidebarStyle .sidebarTodoDescriptionDiv{
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    border-radius: 20%;
+    padding:5px;
+    margin-top:10px;
+    background-color: black;
+}
+
+
+.sidebarStyle .sidebarTodoDescriptionDiv p{
+ padding:10px;
+}
+
+.sidebarStyle .todoSidebarTypeFunctionDiv .selectTypeTodo .red{background-color: rgba(255, 0, 0, 0.203)}
+.sidebarStyle .todoSidebarTypeFunctionDiv .selectTypeTodo .green{background-color: rgba(0, 255, 0, 0.203)}
+.sidebarStyle .todoSidebarTypeFunctionDiv .selectTypeTodo .blue{background-color: rgba(0, 0, 255, 0.203)}
+
+.sidebarStyle .NextOnTodoSidebarDiv a {
+    color:white;
+    text-decoration: none;
+    display: block;
+    width:100%;
+    height: 100%;
+    padding:10px;
+    margin: 10px auto;
+
 }

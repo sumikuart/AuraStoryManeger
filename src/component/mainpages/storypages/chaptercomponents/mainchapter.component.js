@@ -51,6 +51,8 @@ makeNewChapter = (e) => {
     axios.post('http://localhost:4464/add/savechapter', addchapter)
     .then(res => console.log(res.data))
 
+
+    
     this.setState({
 
         chapterList: '',

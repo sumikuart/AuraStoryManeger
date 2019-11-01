@@ -6,9 +6,8 @@
 }
 
 .navbarstyle .basicNav{
-    position: relative;
-    top:0;
-    left:0;
+
+    
 }
 
 .navbarstyle nav ul {
@@ -16,6 +15,7 @@
     justify-content: space-between; 
     width:80%;
     margin: 0 auto;
+
     
 }
 
@@ -90,3 +90,15 @@ box-shadow: 0px 15px 15px -10px rgba(192, 192, 192);
     .navbarstyle .storyDropdown .show  ul li{
         width:100%;
     }
+
+    .navbarstyle  .logo {
+        font-family: 'Caveat', sans-serif;
+        font-size: 38px;
+
+        position: absolute;
+        top:20px;
+        left:50px;
+
+        text-shadow: 0px 0px 18px rgba(204, 218, 255, 1);
+    }
+

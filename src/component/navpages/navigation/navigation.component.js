@@ -29,7 +29,13 @@ class Navbar extends Component {
         return(
             <div className="navbarstyle">
 
+
 <div className="basicNav">
+
+    <div className="logo">
+        Aura
+    </div>
+
         <nav>
             <ul>
                 <li><NavLink to="/home"> Home </NavLink></li>
@@ -49,7 +55,6 @@ class Navbar extends Component {
 
                 </div>
                 </li>
-                <li><NavLink to="/home/tools"> Writing Tools </NavLink></li>
                 <li><NavLink to="/home/files"> File Maneger </NavLink></li>
             </ul>
         </nav>

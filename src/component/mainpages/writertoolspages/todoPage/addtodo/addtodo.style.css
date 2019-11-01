@@ -1,0 +1,75 @@
+.addTodoStyle {}
+
+/* tilbage knappen */
+.addTodoStyle .todoBackButton{
+
+    border-right: 2px solid white;
+    border-bottom:  2px solid white;
+    width:100px;
+    text-align: center;
+
+}
+
+.addTodoStyle .todoBackButton a{
+    color:white;
+    display: block;
+    text-decoration: none;
+    padding:5px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* headline */
+.addTodoStyle .headline {
+    font-family: 'Caveat', sans-serif;
+    font-size: 64px;
+    text-shadow: 0px 0px 18px rgba(204, 218, 255, 1);
+    text-align: center;
+}
+
+/* former, og anede info insamling: */
+
+.addTodoStyle .infoGathereTodoDiv{
+    width:80%;
+    margin: 0 auto;
+}
+
+.addTodoStyle .infoGathereTodoDiv form{
+
+}
+.addTodoStyle .infoGathereTodoDiv form label{
+    font-size: 24px;
+    margin-right:10px;
+    display: block;
+}
+
+.addTodoStyle .infoGathereTodoDiv form input{
+    padding:10px 0;
+    font-size: 18px;
+    width:100%
+}
+
+
+.addTodoStyle .infoGathereTodoDiv textarea {
+    padding-top:10px;
+    font-size: 18px;
+    width:100%;
+    min-height: 300px;
+}
+
+
+.addTodoStyle   .infoGathereTodoDiv .addTodoButton {
+    border: 2px solid white;
+    width:150px;
+    border-radius: 25px;
+    text-align:center;
+
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.addTodoStyle   .infoGathereTodoDiv .addTodoButton:hover{
+    -webkit-box-shadow: 0px 0px 25px 0px rgb(187, 187, 187);
+    -moz-box-shadow: 0px 0px 25px 0px rgb(187, 187, 187);
+    box-shadow: 0px 0px 25px 0px rgb(187, 187, 187);
+}

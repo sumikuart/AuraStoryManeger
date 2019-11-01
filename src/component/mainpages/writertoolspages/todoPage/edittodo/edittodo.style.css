@@ -1,0 +1,271 @@
+.editTodoStyle {}
+
+.editTodoStyle .todoHeadlineDiv {
+    text-shadow: 0px 0px 18px rgba(204, 218, 255, 1);
+    text-align: center;
+}
+
+.editTodoStyle .todoHeadlineDiv .mainTodoHeadline {
+    font-size: 64px; 
+    font-family: 'Caveat', sans-serif;
+}
+
+.editTodoStyle .todoHeadlineDiv .maincurrentTodoHeadline {
+    font-size: 24px; 
+}
+
+
+.editTodoStyle .backToTodoDiv{
+
+    border-right: 2px solid white;
+    border-bottom:  2px solid white;
+    width:100px;
+    text-align: center;
+
+
+
+}
+
+.editTodoStyle .backToTodoDiv a{
+    color:white;
+    display: block;
+    text-decoration: none;
+    padding:5px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.editTodoStyle .todoLoadButton{
+    cursor: pointer;
+    padding:10px;
+    width:15%;
+    margin: 0 auto;
+
+    border: 3px solid white;
+    border-radius: 25px;
+}
+
+.editTodoStyle .smallTodoLoadButton {
+    cursor: pointer;
+    padding:2px;
+    width:10%;
+    margin: 0 auto;
+    font-size: 15px;
+    border: 3px solid white;
+    border-radius: 25px;
+}
+
+.editTodoStyle .smallTodoLoadButton:hover,
+.editTodoStyle .todoLoadButton:hover{
+    -webkit-box-shadow: 0px 0px 25px 0px rgb(0, 255, 170);
+    -moz-box-shadow: 0px 0px 25px 0px rgb(0, 255, 170);
+    box-shadow: 0px 0px 25px 0px rgb(0, 255, 170);
+}
+
+
+.editTodoStyle .todoShowCurrentEditDiv{
+    font-size: 18px;
+}
+
+/* main todo edit styles */
+
+.editTodoStyle .editTodoMainEditDiv{
+    width:80%;
+    margin: 30px auto;
+
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoFlexDiv {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+/* name style */
+.editTodoStyle .editTodoMainEditDiv .editTodoNameDiv{
+    width:33%;
+    margin-bottom: 30px;
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoNameDiv label{
+    font-size: 24px;
+    margin-right:10px;
+    display: block;
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoNameDiv input{
+    padding:10px 0;
+    font-size: 18px;
+    width:100%
+}
+
+/* description style */
+.editTodoStyle .editTodoMainEditDiv .editTodoDescriptionDiv{
+    width:100%;
+    margin-bottom: 30px;
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoDescriptionDiv label{
+    font-size: 24px;
+    margin-right:10px;
+    display: block;
+    margin-top:30px;
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoDescriptionDiv textarea{
+    padding-top:10px;
+    font-size: 18px;
+    width:100%;
+    min-height: 300px;
+}
+
+/* Category styleing */
+.editTodoStyle .editTodoMainEditDiv .editTodoCategoryDiv{
+    width:33%;
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoCategoryDiv label{
+    font-size: 24px;
+    margin-right:10px;
+    display: block;
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoCategoryDiv select{
+    padding:10px 0;
+    font-size: 18px;
+    width:100%;
+    font-weight: bolder;
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoCategoryDiv select .red{
+    background-color: rgba(255, 0, 0, 0.203);
+}
+.editTodoStyle .editTodoMainEditDiv .editTodoCategoryDiv select .green{
+    background-color: rgba(0, 255, 0, 0.203);
+}
+.editTodoStyle .editTodoMainEditDiv .editTodoCategoryDiv select .blue{
+    background-color: rgba(0, 0, 255, 0.203);
+}
+
+/* status to next */
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv{
+    width:28%;
+    margin: 0 auto;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding:10px;
+
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv .nextTodoStatusDiv{
+    height: 50%;
+    width:100%;
+    display: flex;  
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv .nextTodoStatusDiv .labelForNextTodoStatus{
+    width:60%;
+    text-align: center;
+    font-size:24px;
+    padding-top:10px
+}
+
+
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv .nextTodoStatusDiv .statusForNextTodoStatus{
+    widows: 100%;
+    padding: 5px;
+    text-align: center;
+    font-size:24px; 
+    margin:5px 0px;
+    border: 2px solid white;
+
+}
+
+
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv .makeNextTodoButton {
+    cursor: pointer;
+    width:95%;
+    margin: 5px auto;
+    border: 2px solid white;
+    border-radius: 25px;
+    height: 40%;
+    text-align: center;
+    background-color: rgb(83, 83, 83);
+    font-weight: bolder;
+    
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv .makeNextTodoButton p{
+    padding-top:5px;   
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv .makeNextTodoButton:hover{
+    -webkit-box-shadow: 0px 0px 25px 0px rgb(255, 255, 255);
+    -moz-box-shadow: 0px 0px 25px 0px rgb(255, 255, 255);
+    box-shadow: 0px 0px 25px 0px rgb(255, 255, 255);
+}
+
+/* Status er du sikker style */
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv .editTodoStatusAreYouSureDiv {}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv .editTodoStatusAreYouSureDiv .editStatusInfoAreYouSureDiv {
+
+    border-bottom: 2px solid rgb(131, 131, 131);
+    text-align: center;
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv .editTodoStatusAreYouSureDiv .editStatusInfoConfDiv {
+    text-align: center;
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv .editTodoStatusAreYouSureDiv .editStatusInfoConfDiv div {
+
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv .editTodoStatusAreYouSureDiv .editStatusInfoConfDiv div p {
+
+    border: 2px solid rgb(131, 131, 131);
+    transition: 0.2s;
+    margin: 5px;
+    border-radius: 25px;
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoStatusDiv .editTodoStatusAreYouSureDiv .editStatusInfoConfDiv div p:hover {
+    font-size:24px;
+    cursor: pointer;
+    background-color: rgb(153, 153, 153);
+    color:black;
+}
+
+/* Tools */
+
+
+
+.editTodoStyle .editTodoMainEditDiv .editTodoToolBoxDiv{
+    width:80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoToolBoxDiv div{
+    border: 2px solid rgb(192, 192, 192); 
+    border-radius: 25px;
+    padding: 25px;
+    width:18%;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.editTodoStyle .editTodoMainEditDiv .editTodoToolBoxDiv div:hover{
+    -webkit-box-shadow: 0px 0px 25px 0px rgb(255, 255, 255);
+    -moz-box-shadow: 0px 0px 25px 0px rgb(255, 255, 255);
+    box-shadow: 0px 0px 25px 0px rgb(255, 255, 255);
+    background-color: rgb(148, 148, 148);
+    color:black;
+}
+
+ 

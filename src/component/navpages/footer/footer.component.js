@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+
 import './footer.style.css'
+import MainTools from '../../mainpages/writertoolspages/maintools.component'
 
 class footer extends Component {
 
@@ -7,13 +10,17 @@ class footer extends Component {
     
     }
 
-
+ 
 
     render(){
         return(
             <div className="footerstyle">
 
-      <p>Hej fra Footer</p>
+                <MainTools />
+
+            <div className="credits">
+                <p>Made by: Sumiku-Art</p>
+            </div>
 
 
             </div>

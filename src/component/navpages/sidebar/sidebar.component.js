@@ -37,7 +37,22 @@ class Sidebar extends Component {
 
         todoClass:'nextSidebarTodoContent hide',
         vipClass:"listingVipCharecters hide",
-        chapterClass:'sidebarChapterTabel show'
+        chapterClass:'sidebarChapterTabel show',
+
+        todoCategories: ["Practical", "Story", "Create"],
+        todoColor:["red","green","blue"],
+        todoArrayPoint: 1,
+        todoSidebarContent: {
+            todoSidebar_description: ["Make The Todo Function", "Skriv op til at Carvilia forlader Aristokrat kvarteret", "Uddyb Carvilias lillebror"],
+            todoSidebar_Total: [1,5,2],
+            todoSidebar_Done: [0,0,1],
+        },
+
+
+        sidebar_next_todo: [],
+        current_next_todo: '',
+        current_next_todo_show: '',
+        current_next_todo_id:''
     }
 
     componentDidMount(){
@@ -63,6 +78,21 @@ class Sidebar extends Component {
         console.log('an Error has accurd in get from componentDidMount in sidebar component')
     })
 
+    // Todo List
+
+
+    // get Next todos
+    axios.get('http://localhost:4464/gettodo/next')
+    .then(response => {
+            this.setState({ 
+                sidebar_next_todo: response.data
+            })
+    }).catch(function(error) {
+        console.log('an Error has accurd in get from componentDidMount in sidebar component')
+    })
+
+    console.log(this.state.sidebar_next_todo)
+
 
 
 }
@@ -81,6 +111,22 @@ createChapterSidebarList = (e) => {
         return <MapChapterList currentchapter={currentChapter} key={i}/>
 
     });
+}
+
+updatesidebarTodo = (e) => {
+    
+    axios.get('http://localhost:4464/gettodo/next')
+    .then(response => {
+            this.setState({ 
+                sidebar_next_todo: response.data,
+            })
+    }).catch(function(error) {
+        console.log('an Error has accurd in get from componentDidMount in sidebar component')
+    })
+
+    console.log(this.state.sidebar_next_todo)
+
+
 }
 
 updatesidebarVIP = (e) => {
@@ -114,10 +160,24 @@ hideTodoSidebar = (e) => {
             hideTodo:false,
             todoClass:"nextSidebarTodoContent show"
         })
+
+        for (var i = 0; i < this.state.sidebar_next_todo.length; i++){
+
+            if(this.state.sidebar_next_todo[i].todo_kategori === "story"){
+                this.setState({
+                    current_next_todo_show:this.state.sidebar_next_todo[i].todo_name,
+                    current_next_todo_id:this.state.sidebar_next_todo[i]._id
+                })
+            }
+
+
+        }
+
     } else {
         this.setState({
             hideTodo:true,
-            todoClass:"nextSidebarTodoContent hide"
+            todoClass:"nextSidebarTodoContent hide",
+            todoArrayPoint: 1
         })
     }
 }
@@ -149,21 +209,196 @@ hideChapterSidebar = (e) => {
         })
     }
 }
+todoTypeRightClick = (e) => {
+    
+    var arrayTake = this.state.todoArrayPoint - 1
+
+    if(arrayTake === -1){
+        arrayTake = this.state.todoCategories.length-1
+    }
+
+    this.setState({
+        todoArrayPoint:arrayTake,
+        current_next_todo_show:[],
+        current_next_todo_id:[]
+
+    })
+
+    if(this.state.todoArrayPoint === 1){
+
+       
+        for (var i = 0; i < this.state.sidebar_next_todo.length; i++){
+
+            console.log(i)
+
+
+
+            if(this.state.sidebar_next_todo[i].todo_kategori === "practical"){
+
+                this.setState({
+                    current_next_todo_show:this.state.sidebar_next_todo[i].todo_name,
+                    current_next_todo_id:this.state.sidebar_next_todo[i]._id
+                })
+    
+            }
+
+
+        }
+    }
+
+    if(this.state.todoArrayPoint === 2){
+
+
+        for (var i = 0; i < this.state.sidebar_next_todo.length; i++){
+
+            console.log(i)
+ 
+
+            if(this.state.sidebar_next_todo[i].todo_kategori === "story"){
+                this.setState({
+                    current_next_todo_show:this.state.sidebar_next_todo[i].todo_name,
+                    current_next_todo_id:this.state.sidebar_next_todo[i]._id
+                })
+            }
+
+
+        }
+
+
+    }
+
+    if(this.state.todoArrayPoint === 0){
+   
+
+        for (var i = 0; i < this.state.sidebar_next_todo.length; i++){
+
+            console.log(i)
+
+
+
+            if(this.state.sidebar_next_todo[i].todo_kategori === "create"){
+                this.setState({
+                    current_next_todo_show:this.state.sidebar_next_todo[i].todo_name,
+                    current_next_todo_id:this.state.sidebar_next_todo[i]._id
+                })
+            }
+
+
+        }
+
+    }
+}
+
+
+todoTypeLeftClick = (e) =>{
+    var arrayTake = this.state.todoArrayPoint + 1
+
+    if(arrayTake > this.state.todoCategories.length-1 ){
+        arrayTake = 0
+    }
+
+    this.setState({
+        todoArrayPoint:arrayTake,
+        current_next_todo_show:[],
+        current_next_todo_id:[]
+    })
+
+    if(this.state.todoArrayPoint === 2){
+       
+        for (var i = 0; i < this.state.sidebar_next_todo.length; i++){
+
+            console.log(i)
+
+            if(this.state.sidebar_next_todo[i].todo_kategori === "practical"){
+                this.setState({
+                    current_next_todo_show:this.state.sidebar_next_todo[i].todo_name,
+                    current_next_todo_id:this.state.sidebar_next_todo[i]._id
+                })
+            }
+
+
+        }
+    }
+
+    if(this.state.todoArrayPoint === 0){
+
+
+        for (var i = 0; i < this.state.sidebar_next_todo.length; i++){
+
+            console.log(i)
+
+
+
+            if(this.state.sidebar_next_todo[i].todo_kategori === "story"){
+                this.setState({
+                    current_next_todo_show:this.state.sidebar_next_todo[i].todo_name,
+                    current_next_todo_id:this.state.sidebar_next_todo[i]._id
+                })
+            }
+
+
+        }
+
+
+    }
+
+    if(this.state.todoArrayPoint === 1){
+   
+
+        for (var i = 0; i < this.state.sidebar_next_todo.length; i++){
+
+            console.log(i)
+
+
+            if(this.state.sidebar_next_todo[i].todo_kategori === "create"){
+                this.setState({
+                    current_next_todo_show:this.state.sidebar_next_todo[i].todo_name,
+                    current_next_todo_id:this.state.sidebar_next_todo[i]._id
+                })
+            }
+
+
+        }
+
+    }
+
+}
+
 
     render(){
         return(
             <div className="sidebarStyle">
 
                 <div className="NextOnTodoSidebarDiv">
-                        <div className="sidebartitle" >
-                            <p onClick={this.hideTodoSidebar}> Next Todo:(1 af 1)  </p>
-                            <p className="updateSidebar" onClick={this.updatesidebarVIP}>(update)</p>
-                        </div>
+     
+                            <div className="sidebartitle" >
+                                <p onClick={this.hideTodoSidebar}> Next Todo </p>
+                                <p className="updateSidebar" onClick={this.updatesidebarTodo}>(update)</p>
+                            </div>
 
-                        <div className={this.state.todoClass}>
-                            <p> Make a Todo</p> 
-                            <p className="nextTodoDoneSidebar">Done/Next</p>
-                        </div>
+                            <div className={this.state.todoClass}>
+
+                                <div className="todoSidebarTypeFunctionDiv">
+                                <div className="rightbutton" onClick={this.todoTypeRightClick}> &lt;</div>
+
+                                <div className="selectTypeTodo">
+                                    <div className={this.state.todoColor[this.state.todoArrayPoint]}> 
+                                    <p>{this.state.todoCategories[this.state.todoArrayPoint]} </p>
+                                    </div>
+                                </div>
+                                
+                                <div className="leftbutton" onClick={this.todoTypeLeftClick}>&gt;</div>
+                                </div>
+                            
+                                <div className="sidebarTodoDescriptionDiv">
+                                  <NavLink to={'/home/tools/todo/edit/'+ this.state.current_next_todo_id}>{this.state.current_next_todo_show} </NavLink> 
+                                </div>
+                            
+
+
+                      
+                            </div>
+                    
                 </div>
 
                 <div className="vipCharecterDiv">

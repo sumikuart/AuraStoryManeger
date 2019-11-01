@@ -6,7 +6,11 @@ import './editchapter.style.css';
 class EditComponent extends Component {
 
     state={
-        chapter:[],
+        chapter:{
+            chapter_name: ' ',
+            chapter_nr: '',
+            chapter_status: 'none'
+        },
         deleteOptionMenu:'deleteoptionhide'
     }
 
@@ -23,7 +27,20 @@ class EditComponent extends Component {
 
     }
 
-    saveChapter = (e) => {}
+    saveChapter = (e) => {
+        e.preventDefault();
+        console.log('save: ', this.state.chapter._id)
+    
+        const ch = {
+            chapter_nr:this.state.chapter.chapter_nr,
+            chapter_name: this.state.chapter.chapter_name,
+            chapter_status: this.state.chapter.chapter_status
+        }
+    
+        axios.post('http://localhost:4464/update/chapter/' + this.state.chapter._id, ch)
+        .then(res => console.log(res.data))
+    
+    }
 
     deleteChapterMenuHandler = (e) => {}
 
@@ -35,11 +52,56 @@ class EditComponent extends Component {
 
     canceldeleteChapter = (e) =>{}
 
+
+    onChangeChapterName = (e) => {
+        this.setState({
+            chapter:{
+                chapter_name: e.target.value,
+                chapter_status: this.state.chapter_status,
+                _id:this.state.chapter._id,
+                chapter_nr:this.state.chapter.chapter_nr,
+            }
+        })
+    }
+
+    onChangeChapterStatus = (e) =>{
+        this.setState({
+            chapter:{
+                chapter_name:this.state.chapter.chapter_name,
+                chapter_status: e.target.value,
+                _id:this.state.chapter._id,
+                chapter_nr:this.state.chapter.chapter_nr,
+            }
+        })
+    }
+
+
     render(){
         return(
             <div className="editChapterStyle">
 
-    <p>Hej fra EditComponent</p>
+
+    <div className="editToolsChaptersDiv">
+
+            <form>
+            <label>Name:</label>
+            <input type="text" placeholder='name' onChange={this.onChangeChapterName} value={this.state.chapter.chapter_name}/>
+            </form>
+
+
+            <form>
+                <label>Writing Status:</label>
+                    <select value={this.state.chapter.chapter_status} onChange={this.onChangeChapterStatus}>
+                        <option value="none">None</option>
+                        <option value="ongoing">Ongoing</option>
+                        <option value="done">Complete</option>
+                    </select>
+
+                    <div className={this.state.chapter.chapter_status}></div>
+
+            </form>
+
+    </div>
 
     <div  className="mainChapterEditTool">
             

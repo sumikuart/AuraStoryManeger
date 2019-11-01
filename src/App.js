@@ -19,9 +19,16 @@ import LoginComponent from './component/mainpages/login/login.component'
 import LandingComponent from './component/mainpages/landingpage/landingPage.component'
 import MainCharecterComponent from './component/mainpages/characterpages/mainCharecterComponent/mainCharecterComponent.component'
 import MainChapterComponent from './component/mainpages/storypages/chaptercomponents/mainchapter.component'
+import MainTools from './component/mainpages/writertoolspages/maintools.component'
+
+// Todo
+import TodoComponent from './component/mainpages/writertoolspages/todoPage/todo.component'
+import AddTodoComponent from './component/mainpages/writertoolspages/todoPage/addtodo/addtodo.component'
+import EditTodo from './component/mainpages/writertoolspages/todoPage/edittodo/edittodo.component'
 
 //File Center: 
 import FileControler from './component/fileCenter/mainFileControler/filecontroler.component'
+
 
 
 function App() {
@@ -51,6 +58,14 @@ function App() {
             <Route path='/home/characters' component={MainCharecterComponent} />
 
             <Route path='/home/story/chapters' component={MainChapterComponent} />
+
+            <Route exact path='/home/tools' component={MainTools} />
+            
+            <Route exact path='/home/tools/todo' component={TodoComponent} />
+            <Route exact path='/home/tools/todo/edit/'component={TodoComponent} />
+            <Route path='/home/tools/todo/add/:kategori' component={AddTodoComponent} />
+            <Route path='/home/tools/todo/edit/:id' component={EditTodo} />
+
             </main>
             <footer></footer>
           </div>

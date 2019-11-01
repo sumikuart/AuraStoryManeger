@@ -23,7 +23,7 @@ class MainCharecterComponent extends Component {
 
         charecterarray:[],
         chselecterid: '',
-        selectedCharecterFunction: '',
+        selectedCharecterFunctiourl_positionn: '',
         url_position: '',
         hideselector: true,
         hideTextShow: 'hide'

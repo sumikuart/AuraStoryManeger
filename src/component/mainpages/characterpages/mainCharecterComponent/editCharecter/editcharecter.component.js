@@ -142,16 +142,18 @@ render(){
         <label>Name:</label>
         <input type="text" placeholder='name' onChange={this.onChangeName} value={this.state.charecter.ch_name}/>
 
-            <form onChange={this.onChangeVip}> 
-
-                <label>VIP Status:</label>
-                <input type="radio" name="vip_status" value="normal" /> Normal 
-                <input type="radio" name="vip_status" value="vip" /> VIP 
-
-            </form>
 
                     
     </form>
+
+    <form onChange={this.onChangeVip}> 
+
+    <label>VIP Status:</label>
+    <input type="radio" name="vip_status" value="normal" /> Normal 
+    <input type="radio" name="vip_status" value="vip" /> VIP 
+
+    </form>
+
 
 </div>
                
