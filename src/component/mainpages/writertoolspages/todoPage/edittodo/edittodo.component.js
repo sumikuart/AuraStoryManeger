@@ -17,13 +17,97 @@ class EditTodo extends Component {
         todo_sidebar_saveholder:[],
 
         sidebarconfirmer: 'normal',
-        sidebarCategoryNumber: ''
+        sidebarCategoryNumber: '',
+
+        deleteTodoConfirm: 'default'
         
     }
 
 
 
 // Functional functions:
+
+deleteTodoEdit = (e) => {
+
+    if(this.state.deleteTodoConfirm === 'default'){
+        
+        return(
+            <div onClick={this.confirmEditDelete}>
+                    <p>Delete</p>
+            </div>
+        )
+
+    }
+
+    if(this.state.deleteTodoConfirm === 'online'){
+        
+        return(
+            <div className="confirmTodoDeleteMasterDiv" >
+                <p>Delete This Todo?</p>
+
+                <div className="confirmTodoDeleteDiv">
+                    
+                    <div onClick={this.completeEditDelete}>
+                        <p>Yes</p>
+                    </div>
+         
+                    <div onClick={this.confirmEditDelete}>
+                        <p>No</p>
+                    </div>
+
+                </div>
+            </div>
+        )
+
+    }
+
+   
+}
+
+completeEditDelete = (e) =>{
+    e.preventDefault();
+        
+
+    axios.delete('http://localhost:4464/delete/todo/'+this.props.match.params.id)
+        .then( res => console.log(res.data))
+
+        this.setState({
+            current_todo: {
+                todo_name: '',
+                todo_description: '',
+                todo_kategori: '',
+                todo_arkive: '',
+                todo_Sidebar_status:'',
+                todo_complete_status:   '',
+                _id:this.state.current_todo._id
+
+            }
+        })
+
+        this.props.history.push('/home/tools/todo')
+
+}
+
+confirmEditDelete = (e) =>{
+    if(this.state.deleteTodoConfirm === 'default'){
+
+        this.setState({
+            deleteTodoConfirm: 'online'
+        })
+
+    }
+
+    if(this.state.deleteTodoConfirm === 'online'){
+
+        this.setState({
+            deleteTodoConfirm: 'default'
+        })
+        
+    }
+
+} 
+
+
 
     loadeCurrentTodo = (e) => {
 
@@ -49,37 +133,67 @@ class EditTodo extends Component {
     }
   
     changeCompleteStatus = (e) =>{
-        this.setState({
-            sidebarconfirmer: 'normal',
-            sidebarCategoryNumber: '',
-            current_todo: {
-                todo_name: this.state.current_todo.todo_name,
-                todo_description: this.state.current_todo.todo_description,
-                todo_kategori: this.state.current_todo.todo_kategori,
-                todo_arkive: this.state.current_todo.todo_arkive,
-                todo_Sidebar_status:this.state.current_todo.todo_Sidebar_status,
-                todo_complete_status: true,
-                _id:this.state.current_todo._id
+        if(this.state.current_todo.todo_complete_status === "complete"){
 
-            }
+            this.setState({
+                current_todo: {
+                    todo_name: this.state.current_todo.todo_name,
+                    todo_description: this.state.current_todo.todo_description,
+                    todo_kategori: this.state.current_todo.todo_kategori,
+                    todo_arkive: this.state.current_todo.todo_arkive,
+                    todo_Sidebar_status:this.state.current_todo.todo_Sidebar_status,
+                    todo_complete_status:   "not complete",
+                    _id:this.state.current_todo._id
+    
+                }
+            })
+        } else {
+            this.setState({
+                current_todo: {
+                    todo_name: this.state.current_todo.todo_name,
+                    todo_description: this.state.current_todo.todo_description,
+                    todo_kategori: this.state.current_todo.todo_kategori,
+                    todo_arkive: this.state.current_todo.todo_arkive,
+                    todo_Sidebar_status:this.state.current_todo.todo_Sidebar_status,
+                    todo_complete_status:   "complete",
+                    _id:this.state.current_todo._id
+    
+                }
         })
+    }
     }
 
     changeArkiveStatus = (e) =>{
-        this.setState({
-            sidebarconfirmer: 'normal',
-            sidebarCategoryNumber: '',
-            current_todo: {
-                todo_name: this.state.current_todo.todo_name,
-                todo_description: this.state.current_todo.todo_description,
-                todo_kategori: this.state.current_todo.todo_kategori,
-                todo_arkive: true,
-                todo_Sidebar_status:this.state.current_todo.todo_Sidebar_status,
-                todo_complete_status:  this.state.current_todo.todo_complete_status,
-                _id:this.state.current_todo._id
 
-            }
+        if(this.state.current_todo.todo_arkive){
+
+            this.setState({
+                current_todo: {
+                    todo_name: this.state.current_todo.todo_name,
+                    todo_description: this.state.current_todo.todo_description,
+                    todo_kategori: this.state.current_todo.todo_kategori,
+                    todo_arkive: false,
+                    todo_Sidebar_status:this.state.current_todo.todo_Sidebar_status,
+                    todo_complete_status:  this.state.current_todo.todo_complete_status,
+                    _id:this.state.current_todo._id
+    
+                }
+            })
+        } else {
+            this.setState({
+                current_todo: {
+                    todo_name: this.state.current_todo.todo_name,
+                    todo_description: this.state.current_todo.todo_description,
+                    todo_kategori: this.state.current_todo.todo_kategori,
+                    todo_arkive: true,
+                    todo_Sidebar_status:this.state.current_todo.todo_Sidebar_status,
+                    todo_complete_status:  this.state.current_todo.todo_complete_status,
+                    _id:this.state.current_todo._id
+    
+                }
         })
+    }
+        
     }
 
     debugTodo = (e) => {
@@ -161,6 +275,23 @@ class EditTodo extends Component {
                 todo_description: this.state.current_todo.todo_description,
                 todo_kategori: this.state.current_todo.todo_kategori,
                 todo_arkive: this.state.current_todo.todo_arkive,
+                todo_Sidebar_status:this.state.current_todo.todo_Sidebar_status,
+                todo_complete_status:this.state.current_todo.todo_complete_status,
+                _id:this.state.current_todo._id
+
+            }
+        })
+    }
+
+    removeToSideBarStatusOption = (e) =>{
+        this.setState({
+            sidebarconfirmer: 'normal',
+            sidebarCategoryNumber: '',
+            current_todo: {
+                todo_name: this.state.current_todo.todo_name,
+                todo_description: this.state.current_todo.todo_description,
+                todo_kategori: this.state.current_todo.todo_kategori,
+                todo_arkive: this.state.current_todo.todo_arkive,
                 todo_Sidebar_status:'dont show',
                 todo_complete_status:this.state.current_todo.todo_complete_status,
                 _id:this.state.current_todo._id
@@ -205,6 +336,7 @@ class EditTodo extends Component {
 
 
     }
+
 
 
     // OnChange functions
@@ -345,9 +477,16 @@ sidebarStatusChanger = (e) => {
                 <div className="editTodoStatusDiv">
                     <p>{'This is allready the Primary Todo in ' +this.state.current_todo.todo_kategori }</p>
 
-                    <div onClick={this.returnToSideBarStatusOption} >    
-                        <p>Back</p>
-                    </div>
+                        <div>
+                            <div onClick={this.removeToSideBarStatusOption} >    
+                                <p>Remove</p>
+                            </div>
+
+                            <div onClick={this.returnToSideBarStatusOption} >    
+                                <p>Back</p>
+                            </div>
+                        </div>
+                                    
                 </div>
             )
         }
@@ -406,17 +545,16 @@ editTodoMainTools = (e) => {
                 </div>
 
                 <div onClick={this.changeCompleteStatus}>
-                    <p>Complete</p>
+                    <p>{'Complete Status: ' + this.state.current_todo.todo_complete_status}</p>
                 </div>
 
                 <div onClick={this.changeArkiveStatus}>
-                    <p>Move to Archived</p>
+                    <p>{'Archive Status: ' + this.state.current_todo.todo_arkive}</p>
                 </div>
 
                 
-                <div>
-                    <p>Delete</p>
-                </div>
+                {this.deleteTodoEdit()}
+
 
                 
                 <div onClick={this.debugTodo}>

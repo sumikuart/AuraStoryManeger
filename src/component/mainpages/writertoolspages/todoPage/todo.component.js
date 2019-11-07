@@ -6,12 +6,11 @@ import './todo.style.css'
 
 const PractialTodoListSetup = (props) => (
     
-
     <div className="listShower">
 
    
 
-            <NavLink to={'/home/tools/todo/edit/' + props.currenttodo._id} className={props.currenttodo.todo_Sidebar_status}>{props.currenttodo.todo_name}</NavLink>
+            <NavLink to={'/home/tools/todo/edit/' + props.currenttodo._id} className={props.currenttodo.todo_Sidebar_status + ' ' + props.currenttodo.todo_complete_status}>{props.currenttodo.todo_name}</NavLink>
         
 
     </div>
@@ -48,11 +47,9 @@ class TodoComponent extends Component {
 
     mapstorylist = (e) =>{
         return this.state.todo_story_list_holder.map(function(currentItem, i){
-            
-        
+       
                 return <PractialTodoListSetup currenttodo={currentItem} key= {i} />
             
-
         })
     
     }

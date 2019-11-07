@@ -268,4 +268,27 @@
     color:black;
 }
 
- 
+/* DELETE */
+
+.editTodoStyle .editTodoMainEditDiv .editTodoToolBoxDiv .confirmTodoDeleteMasterDiv{
+    color:black;
+    background-color: rgb(148, 148, 148);
+    width:100%;
+    transition:0.2s;
+}
+
+
+
+
+.editTodoStyle .editTodoMainEditDiv .confirmTodoDeleteMasterDiv .confirmTodoDeleteDiv {
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    margin:0;
+    padding:0;
+    border: none
+}
+
+.editTodoStyle .editTodoMainEditDiv .confirmTodoDeleteMasterDiv .confirmTodoDeleteDiv div{
+    width:45%
+}

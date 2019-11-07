@@ -32,35 +32,39 @@ class Navbar extends Component {
 
 <div className="basicNav">
 
+
+    <div className="spaceNavOut">
+
     <div className="logo">
-        Aura
+        <NavLink to="/home"> Aura </NavLink> 
     </div>
 
         <nav>
-            <ul>
-                <li><NavLink to="/home"> Home </NavLink></li>
-                <li><NavLink to="/home/world"> The World </NavLink></li>
-                <li><NavLink to="/home/characters"> Characters </NavLink></li>
-                <li><div className='centerStoryDropdown'> <p onClick={this.handelOnClickStory} className={this.state.storyClass}> The Story </p>
-                
-                    <div className="storyDropdown">
-                        <div className={this.state.storyClass}>
-                            <ul>
-                                <li><NavLink to='/home/story/chapters'>Chapters</NavLink></li>
-                                <li><NavLink to='/home/story/moments'>Epic Moments</NavLink></li>
-                                <li><NavLink to='/home/story/notes'>Notes</NavLink></li>
-                            </ul>
-                        </div>
-                    </div>
+            <ul className="mainNavDiv">
 
+            <li><div className='centerStoryDropdown'> <p onClick={this.handelOnClickStory} className={this.state.storyClass}> The Story </p>
+                
+                <div className="storyDropdown">
+                    <div className={this.state.storyClass}>
+                        <ul>
+                            <li><NavLink to='/home/story/chapters'>Chapters</NavLink></li>
+                            <li><NavLink to='/home/story/moments'>Epic Moments</NavLink></li>
+                            <li><NavLink to='/home/story/notes'>Other Notes</NavLink></li>
+                        </ul>
+                    </div>
                 </div>
-                </li>
-                <li><NavLink to="/home/files"> File Maneger </NavLink></li>
+
+            </div>
+            </li>
+
+                <li><NavLink to="/home/characters"> Characters </NavLink></li>
+              
+                <li><NavLink to="/home/world"> The World </NavLink></li>
             </ul>
         </nav>
 </div>
 
-
+</div>
 
             </div>
         )

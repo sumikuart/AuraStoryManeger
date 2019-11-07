@@ -18,7 +18,8 @@ class LoginComponent extends Component {
         return(
             <div className="loginStyle">
                 <div className="headline">
-                    <p>Aura Story Mangement</p>
+                    <p className="main">Aura</p>
+                    <p className="undeline">A Story Management System</p>
                 </div>
 
                 <div className="frame">

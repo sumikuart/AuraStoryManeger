@@ -105,10 +105,21 @@
 .todoStyle .overviewCollectivDiv .todoContainer .listShower .show{
     font-weight: bolder;
     font-size:18px;
+    margin-left:40px;
 }
 
+
+.todoStyle .overviewCollectivDiv .todoContainer .listShower .complete {
+    text-decoration: line-through;
+}
+
+.todoStyle .overviewCollectivDiv .todoContainer .listShower .not.complete {
+    text-decoration: none;
+}
+
+
 .todoStyle .overviewCollectivDiv .todoContainer .listShower .show::before{
-content:'*'
+content:''
 }
 
 
@@ -116,6 +127,7 @@ content:'*'
 .todoStyle .overviewCollectivDiv .todoContainer .listShower .show.dont{
     font-weight: normal;
     font-size:14px;
+    margin:0;
 }
 
 

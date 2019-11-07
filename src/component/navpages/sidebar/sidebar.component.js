@@ -4,14 +4,17 @@ import {NavLink} from "react-router-dom";
 
 import './sidebar.style.css'
 
+
 const MapVipCharecter = (props) =>{
     return(
         <li><NavLink to={"/home/characters/" + props.currentcharecter._id}> {props.currentcharecter.ch_name} </NavLink></li>
     )
 }
 
+
+
 const MapChapterList =(props) => {
-    // BUG!!!!! tr kan ikke være Child af NavLink
+
     return(
         <NavLink to={"/home/story/chapters/" + props.currentchapter._id } className="chapterLinkA">
         
@@ -20,13 +23,20 @@ const MapChapterList =(props) => {
                 <div>
                     <p>{" "+ props.currentchapter.chapter_nr + "." + props.currentchapter.chapter_name}</p>
                 </div>
+                
+                <div className="pageChapterCounterSidebar">
+                    <p>{"(" + props.currentchapter.chapter_page_length + ")"}</p>
+                </div>
             
         </NavLink>
     )
+
+    
 }
 
 class Sidebar extends Component {
 
+    
     state={
         vip_sidebar_charecters:[],
         sidebar_chapters:[],
@@ -106,12 +116,15 @@ createVipSidebarList = (e) => {
 }
 
 createChapterSidebarList = (e) => {
+
+
     return this.state.sidebar_chapters.map(function(currentChapter, i){
 
-        return <MapChapterList currentchapter={currentChapter} key={i}/>
+        return <MapChapterList currentchapter={currentChapter} key={i} />
 
     });
 }
+
 
 updatesidebarTodo = (e) => {
     

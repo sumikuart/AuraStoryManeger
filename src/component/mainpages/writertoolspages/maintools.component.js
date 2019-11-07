@@ -36,6 +36,11 @@ class MainTools extends Component {
                     <NavLink to="/home/tools/todo">Links</NavLink>
                 </div>
 
+               
+                <div className="linkDiv">
+                    <NavLink to="/home/files"> File Maneger </NavLink>
+                </div>
+
 
             </div>
         )

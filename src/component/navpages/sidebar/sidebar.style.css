@@ -63,7 +63,7 @@ border-bottom: 3px solid rgb(192, 192, 192);
 /* ------------------------------------------------------Chapters */
 
 .sidebarStyle .sidebarChapterTabel{
-    padding-left: 10px;
+
 }
 
 .sidebarStyle .sidebarChapterTabel .chapterLinkA {
@@ -127,6 +127,14 @@ background-color: rgb(255, 166, 0);
         }
 
         
+    .sidebarStyle .sidebarChapterTabel  .pageChapterCounterSidebar{
+        color:gray;
+    }
+
+
+
+    /* TODO LIST-------------- */
+        
         /* -----------------hide function */
 
         .NextOnTodoSidebarDiv {
@@ -159,6 +167,7 @@ background-color: rgb(255, 166, 0);
 .sidebarStyle .hide {
     display: none;
 }
+
 
 
 

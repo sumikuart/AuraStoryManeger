@@ -10,11 +10,11 @@
     
 }
 
-.navbarstyle nav ul {
+.navbarstyle nav ul.mainNavDiv {
     display:flex;
     justify-content: space-between; 
-    width:80%;
-    margin: 0 auto;
+    width:50%;
+    margin-left:700px;
 
     
 }
@@ -100,5 +100,21 @@ box-shadow: 0px 15px 15px -10px rgba(192, 192, 192);
         left:50px;
 
         text-shadow: 0px 0px 18px rgba(204, 218, 255, 1);
+
+        padding: 0 10px;
+
+        border-left:5px solid white;
+        border-top-left-radius:25px;
+        
+        border-right:5px solid white;
+        border-bottom-right-radius:25px;
+
+
     }
 
+
+    .navbarstyle  .logo a {
+        color: white;
+        text-decoration: none;
+        display: block;
+    }
